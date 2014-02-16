@@ -69,6 +69,7 @@ public class MyFirstTest {
 				chkIAgree = driver.findElement(By.cssSelector("input[name='confirmEligibility']"));//By.cssSelector("#confirmEligibility"));
 				chkIAgree.click();
 				
+				//By.xpath("//form[class='interstitial-form']//input[class='button-primary]")
 				WebElement btnApplyNow = driver.findElement(By.cssSelector("form.interstitial-form input.button-primary"));//By.cssSelector(".button-primary"));
 				Thread.sleep(3000);
 				if(btnApplyNow.isEnabled())

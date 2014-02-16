@@ -1,4 +1,4 @@
-package com.SeleniumBasic;
+package com.webelements;
 
 import static junit.framework.Assert.*;
 import com.seleniumframework.UIOperations;
@@ -41,6 +41,7 @@ public class WebElementMethodsTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testGmailPageUI() {
 		
 		try
@@ -104,6 +105,8 @@ public class WebElementMethodsTest {
 		}
 		
 	}
+	
+	
 	
 	@After
 	public void TearDown()
