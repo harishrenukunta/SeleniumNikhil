@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="85610" started-at="2014-03-08T07:24:33Z" finished-at="2014-03-08T07:25:59Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="85610" started-at="2014-03-08T07:24:33Z" finished-at="2014-03-08T07:25:59Z">
+      <class name="NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest">
+        <test-method status="PASS" signature="verifyUIObjects()[pri:0, instance:NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest@1d26552]" name="verifyUIObjects" duration-ms="85532" started-at="2014-03-08T07:24:33Z" finished-at="2014-03-08T07:25:59Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
