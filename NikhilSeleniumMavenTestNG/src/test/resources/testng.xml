@@ -11,15 +11,45 @@
   </test>
   
   -->
-  
+  <!--
+  To execute negative tests
   <test name="Knock Out Pages" >
     <classes>
        <class name="NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest">
 			<methods>
-				<!--<include name=".*PageObject"/>-->
+				<include name=".*PageObject"/>
 				<include name=".*Negative.*"/>
 			</methods>
 	   </class>
+    </classes>
+  </test>
+  -->
+  <!--
+  <parameter name="ItemToAdd" value="Pineapple"/>
+  <test name="Knock Out Pages" >
+    <classes>
+       <class name="NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest">
+			<methods>
+				<include name="verifyAddItemPageObjectParameterised"/>
+				
+			</methods>
+	   </class>
+    </classes>
+  </test>
+ -->
+ <test name="Knock Out Pages" >
+ 
+	 <groups>
+		<run>
+			<include name="Regression"/>
+     
+		</run>
+		</groups>
+
+    <classes>
+       <class name="NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest"/>
+			
+	   
     </classes>
   </test>
  

@@ -18,6 +18,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.knockOutPages.BetterList;
@@ -27,10 +28,11 @@ public class BasicAnnotationsTest {
 	String strUrl = "http://knockoutjs.com/examples/betterList.html";
 	WebDriver driver = null;
 	
-  @BeforeTest
+  @BeforeTest(groups={"Functional", "Regression"})
   public void beforeMethod()
   {
 	  driver = new FirefoxDriver();
+	  driver.manage().window().maximize();
   }
   
   @Test
@@ -89,9 +91,8 @@ public class BasicAnnotationsTest {
 	  }
 	  
   }
-  
-  
-  @Test
+    
+  @Test(enabled=false)
   public void verifyAddItem()
   {
 	  try
@@ -141,7 +142,7 @@ public class BasicAnnotationsTest {
   }
   
   
-  @Test
+  @Test(groups={"Regression", "Functional"})
   public void verifyAddItemPageObject()
   {
 	  BetterList objBL = null;
@@ -166,7 +167,9 @@ public class BasicAnnotationsTest {
 		  fail("Exception :" + ex.getMessage());
 	  }
   }
-  @Test
+  
+  
+  @Test(groups={"Functional"})
   public void verifyRemoveItemPageObject()
   {
 	  BetterList objBL = null;
@@ -184,8 +187,6 @@ public class BasicAnnotationsTest {
 		  objBL.removeItem(strItemToAdd);
 		  
 		  assertFalse(objBL.findItem(strItemToAdd), strItemToAdd + " item found");
-		  
-		  
 	  }
 	  catch(Exception ex)
 	  {
@@ -194,7 +195,7 @@ public class BasicAnnotationsTest {
 	  }
   }
   
-  @Test
+  @Test(enabled=false)
   public void verifyRemoveItemPageObjectNegative()
   {
 	  BetterList objBL = null;
@@ -213,6 +214,31 @@ public class BasicAnnotationsTest {
 		  
 		  assertFalse(objBL.findItem(strItemToAdd), strItemToAdd + " item found");
 		  
+	  }
+	  catch(Exception ex)
+	  {
+		  System.out.println("Exception :" + ex.getMessage());
+		  fail("Exception :" + ex.getMessage());
+	  }
+  }
+  @Parameters({"ItemToAdd"})
+  @Test(enabled=false)
+  public void verifyAddItemPageObjectParameterised(String strItemToAdd)
+  {
+	  BetterList objBL = null;
+	  
+	  try
+	  {
+		  driver.get(strUrl);
+		  
+		  objBL = PageFactory.initElements(driver, BetterList.class);
+		  
+		  //String strItemToAdd = "Sugar Doughnut";
+		  
+		  objBL.addItem(strItemToAdd);
+		  
+		  assertTrue(objBL.findItem(strItemToAdd), strItemToAdd + " item not found");
+		  
 		  
 	  }
 	  catch(Exception ex)
@@ -221,11 +247,12 @@ public class BasicAnnotationsTest {
 		  fail("Exception :" + ex.getMessage());
 	  }
   }
-  
-  @AfterTest
+  @AfterTest(groups={"Functional", "Regression"})
   public void afterMethod()
   {
 	  driver.quit();
 	  driver = null;
   }
+
+
 }
