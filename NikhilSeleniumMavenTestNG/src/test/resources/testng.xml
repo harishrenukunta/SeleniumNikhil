@@ -37,6 +37,8 @@
     </classes>
   </test>
  -->
+ 
+ <!--Illustration of groups
  <test name="Knock Out Pages" >
  
 	 <groups>
@@ -50,9 +52,18 @@
        <class name="NikhilSelenium.NikhilSeleniumMavenTestNG.BasicAnnotationsTest"/>
 			
 	   
-    </classes>
+    </classes>  
   </test>
- 
+ -->
+ <test name="KnockOutDataProviderInAnotherClass">
+	<classes>
+		<class name="NikhilSelenium.NikhilSeleniumMavenTestNG.DataProviderTest">
+			<methods>
+				<include name="verifyAddProductDPInAnotherClass"/>
+			</methods>
+		</class>
+	</classes>
+ </test>
  <!--
   <test name="Regression1">
     <classes>
